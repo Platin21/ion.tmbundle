@@ -99,7 +99,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(int|float|void|uint64|uint32|uint16|uint8|ullong|char)\b</string>
+			<string>\b(void|bool|char|schar|uchar|short|ushort|int|uint|long|ulong|llong|ullong|float|double|uint8|int8|uint16|int16|uint32|int32|uint64|int64)\b</string>
 			<key>name</key>
 			<string>storage.type.ion</string>
 		</dict>
