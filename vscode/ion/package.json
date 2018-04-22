@@ -1,0 +1,26 @@
+{
+    "name": "ion",
+    "displayName": "IonHighlighter",
+    "description": "It provides highlighting for Ion a language made for the bitwise project.",
+    "version": "0.0.3",
+    "publisher": "platin21",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "ion",
+            "aliases": ["Ion", "ion"],
+            "extensions": [".ion"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "ion",
+            "scopeName": "source.ion",
+            "path": "./syntaxes/ion.tmLanguage"
+        }]
+    }
+}
