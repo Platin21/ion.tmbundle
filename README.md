@@ -10,4 +10,7 @@ This `tmLanguage` file provides highlighting for Ion a language made for the bit
 It should be able to highlight any tokens that are in the language.
 It works with VSCode /  Sublime / Textmate.
 
+### Bitwise #
+Link: https://github.com/pervognsen/bitwise
+
 
