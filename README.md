@@ -36,8 +36,11 @@ Change one version number!
 
 ##### 0.0.5 #
 
-Move for VS to a more sopisticated version of the Highlighter via TypeScript
-I do have all ready a lot of fun with it !
+Some changes to the regex things is was quite hard to get it working properly
+
+##### 0.0.6 #
+
+How Knows!
 
 
 

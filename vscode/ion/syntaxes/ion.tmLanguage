@@ -51,7 +51,7 @@
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.others.qualifiere.ion</string>
+					<string>storage.type.ion</string>
 				</dict>
 				<key>4</key>
 				<dict>
@@ -60,7 +60,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(:)\s*([a-zA-Z0-9_]*)((\*|\[\])*)\s*(\{|\;|\n)</string>
+			<string>(:)\s*([a-zA-Z0-9_]*\s*(const|static){0,1}\s*)((\*|\[\])*)\s*(\{|\;|\n)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -87,7 +87,39 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>([a-zA-Z0-9_]+)\s*(:)\s*([a-zA-Z0-9_]+)\s*((\*|\[\])*)\s*(,|\){1})</string>
+			<string>([a-zA-Z0-9_]+)(:)\s*(func)</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.ion</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.assignment.ion</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.ion</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.ion</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.others.qualifiere.ion</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>([a-zA-Z0-9_]+)\s*(:)\s*([a-zA-Z0-9_]+\s*(const|static){0,1}\s*)\s*((\*|\[\])*)\s*(,|\){1})</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -139,6 +171,12 @@
 		</dict>
 		<dict>
 			<key>match</key>
+			<string>\#static_assert</string>
+			<key>name</key>
+			<string>meta.preprocessor.macro.ion</string>
+		</dict>
+		<dict>
+			<key>match</key>
 			<string>/\*.*\*/</string>
 			<key>name</key>
 			<string>comment.line.block.ion</string>
@@ -152,10 +190,53 @@
 			<string>comment.line.block.ion</string>
 		</dict>
 		<dict>
+			<key>captures</key>
+			<dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.assignment.ion</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.ion</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.others.qualifiere.ion</string>
+				</dict>
+				<key>6</key>
+				<dict>
+					<key>name</key>
+					<string>constant.numeric.hex.ion</string>
+				</dict>
+			</dict>
 			<key>match</key>
-			<string>\b(const|var)\b</string>
-			<key>name</key>
-			<string>storage.modifier.ion</string>
+			<string>\b([a-zA-Z_][a-zA-Z0-9_]+)\s*(:{1})\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*((\*|\[([a-zA-Z0-9_]*)\])*)\s*\;</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.ion</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.assignment.ion</string>
+				</dict>
+				<key>5</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.ion</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(var|const)\s+([a-zA-Z_][a-zA-Z0-9_]*)((:{1})\s*([a-zA-Z_][a-zA-Z0-9_]*)){0,1}</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -198,18 +279,6 @@
 			<string>(~|\^|&amp;&amp;|&amp;)</string>
 			<key>name</key>
 			<string>keyword.operator.binary.ion</string>
-		</dict>
-		<dict>
-			<key>captures</key>
-			<dict>
-				<key>1</key>
-				<dict>
-					<key>name</key>
-					<string>constant.other.ion</string>
-				</dict>
-			</dict>
-			<key>match</key>
-			<string>\[([^\n\t ]*)\]</string>
 		</dict>
 		<dict>
 			<key>match</key>
