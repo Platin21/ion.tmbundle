@@ -14,7 +14,7 @@
 	<array>
 		<dict>
 			<key>match</key>
-			<string>\b(if|while|for|return|struct|switch|default|continue|break|case|typedef|else|enum)\b</string>
+			<string>\b(if|while|for|return|struct|switch|default|continue|break|case|typedef|else|enum|do)\b</string>
 			<key>name</key>
 			<string>keyword.control.ion</string>
 		</dict>
@@ -33,7 +33,67 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>(func)[\n\t ]*(.+)\(</string>
+			<string>(func)\s+(.+)\(</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.assignment.ion</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.ion</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.others.qualifiere.ion</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.others.qualifiere.ion</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>(:)\s*([a-zA-Z0-9_]*)((\*|\[\])*)\s*(\{|\;|\n)</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.tag.ion</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.operator.assignment.ion</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.ion</string>
+				</dict>
+				<key>4</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.others.qualifiere.ion</string>
+				</dict>
+			</dict>
+			<key>match</key>
+			<string>([a-zA-Z0-9_]+)\s*(:)\s*([a-zA-Z0-9_]+)\s*((\*|\[\])*)\s*(,|\){1})</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>([a-zA-Z0-9_]+)\s*(:{1})\s*([\[\]])*\s*(,|\))</string>
+			<key>name</key>
+			<string>invalid.illegal.paren_or_zero.ion</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -67,9 +127,9 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(sizeof)\b</string>
+			<string>\bsizeof|offsetof|typeof|alignof\b</string>
 			<key>name</key>
-			<string>keyword.operator.sizeof.c</string>
+			<string>keyword.operator.sizeof.ion</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -99,9 +159,33 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\b(void|bool|char|schar|uchar|short|ushort|int|uint|long|ulong|llong|ullong|float|double|uint8|int8|uint16|int16|uint32|int32|uint64|int64)\b</string>
+			<string>\b(void|bool)\b</string>
 			<key>name</key>
-			<string>storage.type.ion</string>
+			<string>storage.type.others.ion</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(char|schar|uchar)\b</string>
+			<key>name</key>
+			<string>storage.type.charackter.ion</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(float|double)\b</string>
+			<key>name</key>
+			<string>storage.type.fraction.ion</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(short|int|long|llong|int8|int16|int32|int64)\b</string>
+			<key>name</key>
+			<string>storage.type.whole.ion</string>
+		</dict>
+		<dict>
+			<key>match</key>
+			<string>\b(ushort|uint|ulong|ullong|uint8|uint16|uint32|uint64)\b</string>
+			<key>name</key>
+			<string>storage.type.unsigned.whole.ion</string>
 		</dict>
 		<dict>
 			<key>match</key>
@@ -129,7 +213,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(:=|=)|(\*)+</string>
+			<string>(:=|=)+</string>
 			<key>name</key>
 			<string>keyword.operator.assignment.ion</string>
 		</dict>
@@ -141,15 +225,9 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>(\+\+|\-\-|\+|\-|\-\=|/)</string>
+			<string>(\+\+|\-\-|\+|\-|\-\=|\*|/)</string>
 			<key>name</key>
 			<string>keyword.operator.math.ion</string>
-		</dict>
-		<dict>
-			<key>match</key>
-			<string>:</string>
-			<key>name</key>
-			<string>keyword.operator.assignment.ion</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -171,7 +249,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\((\:)([^*]*(\*)*)\)</string>
+			<string>\((\:)([^)}]*]*(\*)*)\)</string>
 		</dict>
 		<dict>
 			<key>begin</key>
@@ -190,7 +268,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>%(d|s|c|p|x|llu|lu|f)</string>
+					<string>%(d|u|l|ul|ll|ull|f)</string>
 					<key>name</key>
 					<string>constant.character.other.ion</string>
 				</dict>
@@ -213,7 +291,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>%(d|s|c|p|x|llu|lu|f)</string>
+					<string>%(d|ull|ul|ll|u|l|f)</string>
 					<key>name</key>
 					<string>constant.character.other.ion</string>
 				</dict>
@@ -233,12 +311,6 @@
 					<string>\\(r|n|t|v|a|b)</string>
 					<key>name</key>
 					<string>constant.character.escape.ion</string>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>%(d|s|c|p|x|llu|lu|f)</string>
-					<key>name</key>
-					<string>constant.character.other.ion</string>
 				</dict>
 			</array>
 		</dict>
