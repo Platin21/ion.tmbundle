@@ -7,7 +7,7 @@ file_extensions:
 scope: source.ion
 contexts:
   main:
-    - match: \b(if|while|for|return|struct|switch|default|continue|break|case|typedef|else|enum|do)\b
+    - match: \b(if|while|for|return|struct|switch|default|continue|break|case|typedef|else|enum|union|do|get_typeof)\b
       scope: keyword.control.ion
     - match: (func)\s+(.+)\(
       captures:
