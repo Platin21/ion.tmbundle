@@ -26,3 +26,7 @@ Some changes to the regex things is was quite hard to get it working properly
 ##### 0.0.6 #
 
 Fixed #6 simply adding union silly me.
+
+##### 0.0.7 #
+
+Add Import and defer
