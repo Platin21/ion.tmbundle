@@ -30,3 +30,7 @@ Fixed #6 simply adding union silly me.
 ##### 0.0.7 #
 
 Add Import and defer
+
+##### 0.0.8 #
+
+Fixed the comment as it was somehow broken if someone didn't add newline

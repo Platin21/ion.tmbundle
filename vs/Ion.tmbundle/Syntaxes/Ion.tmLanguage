@@ -288,7 +288,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>//.*\n</string>
+			<string>//[^\n]+(\n)*</string>
 			<key>name</key>
 			<string>comment.line.double-slash.ion</string>
 		</dict>
