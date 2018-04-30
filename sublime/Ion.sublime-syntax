@@ -84,7 +84,7 @@ contexts:
       scope: keyword.operator.binary.ion
     - match: (:=|=)+
       scope: keyword.operator.assignment.ion
-    - match: //.*\n
+    - match: '//[^\n]+(\n)*'
       scope: comment.line.double-slash.ion
     - match: (\+\+|\-\-|\+|\-|\-\=|\*|/)
       scope: keyword.operator.math.ion
